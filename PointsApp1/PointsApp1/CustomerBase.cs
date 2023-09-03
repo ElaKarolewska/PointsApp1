@@ -9,6 +9,9 @@ namespace PointsApp1
 {
     public abstract class CustomerBase: ICustomer
     {
+        
+        
+       
         public CustomerBase(string name, string surname) 
         {
             this.Name = name;
@@ -21,7 +24,10 @@ namespace PointsApp1
         public abstract void AddPoint(int point);
 
         public abstract Statistics GetStatistics();
-        
-        
+
+        public void ShowStatistics()
+        {
+            
+        }
     }
 }

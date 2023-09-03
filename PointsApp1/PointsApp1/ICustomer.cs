@@ -13,6 +13,9 @@ namespace PointsApp1
         void AddPoint (string point);
         void AddPoint (int point);
         Statistics GetStatistics();
+        void ShowStatistics();
+        
+        
        
 
        

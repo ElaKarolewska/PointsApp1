@@ -13,19 +13,48 @@ namespace PointsApp1
         {
         }
 
+       
+
         public override void AddPoint(string point)
         {
-            throw new NotImplementedException();
+            if (int.TryParse(point, out int result))
+            {
+                this.AddPoint(result);
+            }
+            else 
+            {
+                throw new Exception("Only points from 1 to 100 can be add.");
+            }
         }
 
         public override void AddPoint(int point)
         {
-            throw new NotImplementedException();
+            if (point >= 0 && point <= 100)
+            {
+                this.points.Add(point);
+
+                
+                
+                    
+                
+             
+            }
+            else 
+            {
+                Console.WriteLine("Only points from 1 to 100 can be add.");
+            }   
+            
         }
 
         public override Statistics GetStatistics()
         {
-            throw new NotImplementedException();
+            var result = new Statistics();
+
+            foreach (var point in this.points) 
+            {
+                result.AddPoint(point);
+            }
+            return result;
         }
     }
 }
