@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,13 @@ namespace PointsApp1
 {
     public class CustomerInMemory : CustomerBase
     {
+        public override event Added100PointsDelegate Added100Points;
+        
         private List<int> points = new List<int>();
         public CustomerInMemory(string name, string surname) : base(name, surname)
         {
         }
-
-       
-
+        
         public override void AddPoint(string point)
         {
             if (int.TryParse(point, out int result))
@@ -33,15 +34,14 @@ namespace PointsApp1
             {
                 this.points.Add(point);
 
-                
-                
-                    
-                
-             
-            }
+                if (point == 100) 
+                {
+                    Added100Points(this, new EventArgs());
+                }
+             }
             else 
             {
-                Console.WriteLine("Only points from 1 to 100 can be add.");
+                throw new Exception("Only points from 1 to 100 can be add.");
             }   
             
         }

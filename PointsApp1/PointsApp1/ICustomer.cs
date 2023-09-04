@@ -15,10 +15,11 @@ namespace PointsApp1
         Statistics GetStatistics();
         void ShowStatistics();
         
-        
-       
+        event CustomerBase.Added100PointsDelegate Added100Points;
 
-       
-    
+
+
+
+
     }
 }
