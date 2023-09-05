@@ -22,30 +22,56 @@ namespace PointsApp1
             {
                 this.AddPoint(result);
             }
-            else 
+            else if (char.TryParse(point, out char charResult)) 
             {
-                throw new Exception("Only points from 1 to 100 can be add.");
+                this.AddPoint(charResult);
+            }
+            else
+            {
+                throw new Exception("String is not int or char letter.");
             }
         }
-
+        public override void AddPoint(char point) 
+        {
+            switch (point) 
+            {
+                case 'A' or 'a':
+                    this.AddPoint(50);
+                    break;
+                case 'B' or 'b':
+                    this.AddPoint(40);
+                    break;
+                case 'C' or 'c':
+                    this.AddPoint(30);
+                    break;
+                case 'D' or 'd':
+                    this.AddPoint(20);
+                    break;
+                case 'E' or 'e':
+                    this.AddPoint(10);
+                    break;
+                default: throw new Exception("Wrong letter!");
+            
+            }
+        }
         public override void AddPoint(int point)
         {
             if (point >= 0 && point <= 100)
             {
                 this.points.Add(point);
 
-                if (point == 100) 
+                if (point == 100)
                 {
                     Added100Points(this, new EventArgs());
                 }
-             }
+
+            }
             else 
             {
                 throw new Exception("Only points from 1 to 100 can be add.");
             }   
             
         }
-
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
@@ -55,6 +81,7 @@ namespace PointsApp1
                 result.AddPoint(point);
             }
             return result;
+ 
         }
     }
 }

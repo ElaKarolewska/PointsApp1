@@ -70,7 +70,7 @@ namespace PointsApp1
             }
             else
             {
-                Console.WriteLine("Customer's name and surname can' be empty! ");
+                Console.WriteLine("Customer's name and surname can not be empty! ");
             }
 
         }

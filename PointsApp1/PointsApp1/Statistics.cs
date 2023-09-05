@@ -13,6 +13,7 @@ namespace PointsApp1
         public int Min;
         public int Sum;
         public int Count;
+
         public int Average
         {
             get 
@@ -35,6 +36,8 @@ namespace PointsApp1
             this.Count ++;
             this.Min = Math.Min(this.Min, point);
             this.Max = Math.Max(this.Max, point);
+
+
         }
     }
 }

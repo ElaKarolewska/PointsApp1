@@ -20,10 +20,11 @@ namespace PointsApp1
         public string Name { get;  set; }
         public string Surname { get; set; }
 
+        public abstract void AddPoint(char point);
         public abstract void AddPoint (string point);
         public abstract void AddPoint(int point);
+        
         public abstract Statistics GetStatistics();
-
        
         public void ShowStatistics()
         {
@@ -36,6 +37,5 @@ namespace PointsApp1
             Console.WriteLine($"Average {statistics.Average:N2}:");
             
         }
-
     }
 }

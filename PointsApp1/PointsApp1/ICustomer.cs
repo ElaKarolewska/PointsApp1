@@ -12,6 +12,7 @@ namespace PointsApp1
         string Surname { get; set; }
         void AddPoint (string point);
         void AddPoint (int point);
+        void AddPoint(char point);
         Statistics GetStatistics();
         void ShowStatistics();
         
