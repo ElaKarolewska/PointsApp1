@@ -15,11 +15,11 @@ namespace PointsApp1
             while (!CloseApp)
             {
                 Console.WriteLine("1 - Add customer points to the program memory.\n" +
-                                  //                      "2 - Add customer points to the .txt file\n" +
+                                  "2 - Add customer points to the .txt file\n" +
                                   "X - Close app.\n");
 
 
-                Console.WriteLine("What do you want to do?\n" + "Press 1,  or X.");
+                Console.WriteLine("What do you want to do?\n" + "Press 1, 2 or X.");
                 var userInput = Console.ReadLine().ToUpper();
 
                 switch (userInput)
@@ -28,10 +28,9 @@ namespace PointsApp1
                     case "1":
                         AddPointsToMemory();
                         break;
-                    
-                    
-                    
-                    
+                    case "2":
+                        AddPointsToTheFile();
+                        break;
                     case "X":
                         CloseApp = true;
                         break;
@@ -46,6 +45,8 @@ namespace PointsApp1
             Console.WriteLine("Now you can press any key to leave.");
             Console.ReadKey();
         }
+
+
 
         static void Added100Points(object sender, EventArgs args) 
         {
@@ -74,7 +75,27 @@ namespace PointsApp1
             }
 
         }
+        private static void AddPointsToTheFile()
+        {
+            Console.WriteLine("Please insert customer's name: ");
+            var name = Console.ReadLine();
 
+            Console.WriteLine("Please insert customer's surname: ");
+            var surname = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
+            {
+                var inFileCustomer = new CustomerInFile(name, surname);
+                inFileCustomer.Added100Points += Added100Points;
+                EnterPoint(inFileCustomer);
+                inFileCustomer.ShowStatistics();
+            }
+            else
+            {
+                Console.WriteLine("Customer's name and surname can not be empty! ");
+            }
+        }
+        
         private static void EnterPoint(ICustomer customer)
         {
             while (true) 

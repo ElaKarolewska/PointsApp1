@@ -21,10 +21,15 @@ namespace PointsApp1
             {
                 this.AddPoint(result);
             }
-            else
+            else if (char.TryParse(point, out char charResult))
             {
-                throw new Exception("Only points from 1 to 100 can be add.");
+                this.AddPoint(charResult);
             }
+            else 
+            {
+                throw new Exception("String is not int or char letter.");
+            }
+
         }
 
         public override void AddPoint(int point)
@@ -32,11 +37,15 @@ namespace PointsApp1
             if (point >= 0 && point <= 100)
             {
                 using (var writer = File.AppendText(fileName))
+                
                 {
                     writer.WriteLine(point);
                 }
-
-
+                if (point == 100) 
+                {
+                    Added100Points(this, new EventArgs());
+                
+                }
 
             }
         }
@@ -67,9 +76,23 @@ namespace PointsApp1
 
         public override Statistics GetStatistics()
         {
-
+            var result = new Statistics();
+            if (File.Exists($"{fileName}")) 
+            {
+                using (var reader = File.OpenText($"{fileName}")) 
+                {
+                    var line = reader.ReadLine();
+                    while (line != null) 
+                    {
+                        var number = int.Parse(line);
+                        result.AddPoint(number);
+                        line = reader.ReadLine();
+                    }
+                }
+                
+            }
+            
+            return result;
         }
-
-
     }
 }
