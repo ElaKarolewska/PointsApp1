@@ -30,12 +30,13 @@ namespace PointsApp1
         {
             var statistics= GetStatistics();
 
-            Console.WriteLine($"{Name} {Surname} statistics:");
+            Console.WriteLine($"{Name} {Surname} STATISTICS:");
+            Console.WriteLine();
             Console.WriteLine($"Total points {statistics.Sum}:");
             Console.WriteLine($"Min {statistics.Min}:");
             Console.WriteLine($"Max {statistics.Max}:");
             Console.WriteLine($"Average {statistics.Average:N2}:");
-            
+            Console.WriteLine(" \n" + " ");
         }
     }
 }
