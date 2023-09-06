@@ -10,8 +10,12 @@ namespace PointsApp1
     {
         private const string fileName = "points.txt";
         
+        private string name;
+        private string surname;
+        private string fullFileName;
         public CustomerInFile(string name, string surname) : base(name, surname)
         {
+            fullFileName = $"{name} {surname} {fileName}";
         }
 
         public override event Added100PointsDelegate Added100Points;
@@ -37,7 +41,7 @@ namespace PointsApp1
         {
             if (point >= 0 && point <= 100)
             {
-                using (var writer = File.AppendText(fileName))
+                using (var writer = File.AppendText(fullFileName))
                 
                 {
                     writer.WriteLine(point);
@@ -74,19 +78,21 @@ namespace PointsApp1
 
             }
         }
-
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
-            if (File.Exists($"{fileName}")) 
+            if (File.Exists($"{fullFileName}")) 
             {
-                using (var reader = File.OpenText($"{fileName}")) 
+                StringBuilder sb = new StringBuilder($"{this.name} {this.surname}");
+                
+                using (var reader = File.OpenText($"{fullFileName}")) 
                 {
                     var line = reader.ReadLine();
                     while (line != null) 
                     {
                         var number = int.Parse(line);
                         result.AddPoint(number);
+                        sb.Append($"{line}; ");
                         line = reader.ReadLine();
                     }
                 }
