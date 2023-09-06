@@ -9,6 +9,7 @@ namespace PointsApp1
     public class CustomerInFile : CustomerBase
     {
         private const string fileName = "points.txt";
+        
         public CustomerInFile(string name, string surname) : base(name, surname)
         {
         }
