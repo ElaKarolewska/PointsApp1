@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointsApp1", "PointsApp1\PointsApp1.csproj", "{0CE1D4A6-3CAA-4446-A1ED-262C504C335A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointsApp1Tests", "PointsAppTests\PointsApp1Tests.csproj", "{1D5E52B3-B6E1-46B1-B6A0-239F4BBCABA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerInMemoryTests", "PointsAppTests\CustomerInMemoryTests.csproj", "{1D5E52B3-B6E1-46B1-B6A0-239F4BBCABA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

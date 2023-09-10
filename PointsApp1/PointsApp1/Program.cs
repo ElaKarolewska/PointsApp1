@@ -1,11 +1,7 @@
-﻿using System;
-
-namespace PointsApp1
+﻿namespace PointsApp1
 {
-
     internal class Program
     {
-
         private static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the application to service your customers' points.\n" + "");
@@ -17,7 +13,6 @@ namespace PointsApp1
                 Console.WriteLine("1 - Add customer points to the program memory.\n" +
                                   "2 - Add customer points to the .txt file\n" +
                                   "X - Close app.\n");
-
 
                 Console.WriteLine("What do you want to do?\n" + "Press 1, 2 or X.");
                 var userInput = Console.ReadLine().ToUpper();
@@ -34,25 +29,18 @@ namespace PointsApp1
                     case "X":
                         CloseApp = true;
                         break;
-
                     default:
                         Console.WriteLine("Invalid operation.\n");
-
-                     continue;
+                    continue;
                 }
-
             }
             Console.WriteLine("Now you can press any key to leave.");
             Console.ReadKey();
         }
-
-
-
         static void Added100Points(object sender, EventArgs args) 
         {
             Console.WriteLine("Added 100 points, congratulations to the customer - now should receive a discount!");
         }
-
         private static void AddPointsToMemory()
         {
             
@@ -73,7 +61,6 @@ namespace PointsApp1
             {
                 Console.WriteLine("Customer's name and surname can not be empty! ");
             }
-
         }
         private static void AddPointsToTheFile()
         {
@@ -95,7 +82,6 @@ namespace PointsApp1
                 Console.WriteLine("Customer's name and surname can not be empty! ");
             }
         }
-        
         private static void EnterPoint(ICustomer customer)
         {
             while (true) 
@@ -121,9 +107,7 @@ namespace PointsApp1
                 }
             }
         }
-               
     }
-
 }
 
 

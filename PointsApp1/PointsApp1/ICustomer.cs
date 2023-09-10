@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PointsApp1
+﻿namespace PointsApp1
 {
     public interface ICustomer
     {
@@ -17,10 +11,5 @@ namespace PointsApp1
         void ShowStatistics();
         
         event CustomerBase.Added100PointsDelegate Added100Points;
-
-
-
-
-
     }
 }
