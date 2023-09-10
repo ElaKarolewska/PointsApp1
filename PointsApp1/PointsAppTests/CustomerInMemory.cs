@@ -2,9 +2,8 @@ using PointsApp1;
 
 namespace PointsAppTests
 {
-    public class Tests
+    public class Tests 
     {
-
         [Test]
         public void GetCustomerReturnDifferentObjects()
         {
@@ -25,9 +24,7 @@ namespace PointsAppTests
             Statistics statistics = customer.GetStatistics();
 
             Assert.AreEqual(5, statistics.Min);
-        
         }
-        
         private CustomerInMemory GetCustomer(string name, string surname)
         {
             return new CustomerInMemory(name, surname);
