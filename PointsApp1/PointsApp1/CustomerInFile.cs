@@ -20,7 +20,6 @@ namespace PointsApp1
             if (point >= 0 && point <= 100)
             {
                 using (var writer = File.AppendText(fullFileName))
-                
                 {
                     writer.WriteLine(point);
                 }
